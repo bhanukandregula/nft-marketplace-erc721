@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import './ERC165.sol';
+import './interfaces/IERC721.sol';
+
 // BUILDING OUT MINTING FUNCTION
 // a. NFT to point to an address
 // b. keep track of the token ids
@@ -8,7 +11,8 @@ pragma solidity ^0.8.0;
 // d. keep track of how many addresses each owner has
 // e. create an event that emits transfer log - contract address where it is being minted to and its id
 
-contract ERC721 {
+// This is ERC165 will also give access to interface IERC165 for ERC721
+contract ERC721 is ERC165, IERC721  {
 
     // Mapping in solodity creates a table, with key value pairs
     // Mapping token ID to the owner
@@ -16,6 +20,18 @@ contract ERC721 {
 
     // Mapping from owner to number of owner tokens
     mapping(address => uint256) private _ownedTokensCount;
+
+    // Register the interface for the ERC721 so that it includes the folloing functions: 
+    // Interface ERC721
+    // balanceOf()
+    // ownerOf()
+    // TransferFrom()
+    constructor(){
+        _registerInterface(bytes4(keccak256('balanceOf(bytes4)') ^
+        keccak256('ownerOf(bytes4)') ^
+        keccak256('transferfrom(bytes4)'))
+        );
+    }
 
     function _exists(uint256 tokenId) internal view returns(bool){
         // setting the address of the NFT owner to check the mapping of the address from tokenOwner at the tokenId
@@ -74,7 +90,7 @@ contract ERC721 {
         emit Transfer(_from, _to, _tokenId);
     }
 
-    function transferFrom(address _from, address _to, uint _tokenId) public {
+    function transferFrom(address _from, address _to, uint _tokenId) public override {
         // there is additional function shas to be writtne to approve, but for now; its just owner
         // we can get the additional notes from openzepplin library
         // node_modules/openzepplin/token/ERC721/
@@ -89,7 +105,7 @@ contract ERC721 {
         // d. update the map of the approval addresses
 
         address owner = ownerOf(_tokenId);
-        require(_to != owner, 'Erroor: approvalk to current owner');
+        require(_to != owner, 'Error: approval to current owner');
         require(msg.sender == owner, 'Current caller is not the owner');
         _tokenApprovals[_tokenId] = _to; 
 
@@ -102,18 +118,16 @@ contract ERC721 {
         return(spender == owner);
     }
 
-    event Transfer(
-        address indexed from, 
-        address indexed to, 
-        uint256 indexed tokenId);
+    // we comment tyhese two events, since we have these two in IERC721.sol interface
 
-    event Approval(
-        address indexed owner,
-        address indexed approved,
-        uint indexed tokenId
-    );
+    // event Transfer(
+    //     address indexed from, 
+    //     address indexed to, 
+    //     uint256 indexed tokenId);
 
-    constructor(){
-
-    }
+    // event Approval(
+    //     address indexed owner,
+    //     address indexed approved,
+    //     uint indexed tokenId
+    // );
 }

@@ -8,6 +8,4 @@ contract ERC721Connector is ERC721Metadata, ERC721Enumerable {
     constructor(string memory name, string memory symbol) ERC721Metadata(name, symbol) {
         
     }
-
-
 }

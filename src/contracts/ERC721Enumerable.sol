@@ -3,7 +3,9 @@ pragma solidity ^0.8.0;
 
 import './ERC721.sol';
 
-contract ERC721Enumerable is ERC721 {
+import './interfaces/IERC721Enumerable.sol';
+
+contract ERC721Enumerable is ERC721, IERC721Enumerable {
     // Places to keep the value if all tokens count
     uint256[] private _allTokens;
 
@@ -16,8 +18,19 @@ contract ERC721Enumerable is ERC721 {
     // mapping from token Id to index of the owner tokens list
     mapping(uint => uint) private _ownedTokensIndex;
 
+     // Interface ERC721Enumerable 
+    // totalSupply
+    // tokenByIndex
+    // tokenOfOwnerByIndex
+    constructor(){
+        _registerInterface(bytes4(keccak256('totalSupply(bytes4)') ^
+        keccak256('tokenByIndex(bytes4)') ^
+        keccak256('tokenOfOwnerByIndex(bytes4)'))
+        );
+    }
+
     // return sthe total supply of the allTokens array
-    function totalSupply() public view returns(uint256) {
+    function totalSupply() public view override  returns(uint256) {
         return _allTokens.length;
     }
 
@@ -46,14 +59,14 @@ contract ERC721Enumerable is ERC721 {
     }
 
     // a. one that returns tokenByIndex
-    function tokenByIndex(uint index) public view returns (uint){
+    function tokenByIndex(uint index) public view override returns (uint){
         // make sure that the index is not out of bounds of total supply
         require(index < totalSupply(), 'Global index is out of bounds');
         return _allTokens[index];
     }
 
     // b. another on ethat returns tokenOfOwnerByIndex
-    function tokenOfOwnerByIndex(address owner, uint index) public view returns(uint) {
+    function tokenOfOwnerByIndex(address owner, uint index) public view override returns(uint) {
         require(index < balanceOf(owner), 'owner index is out of bounds');
         return _ownedTokens[owner][index];
     }
