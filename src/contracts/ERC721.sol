@@ -38,11 +38,6 @@ contract ERC721 {
         emit Transfer(address(0), to, tokenId);
     }
 
-    event Transfer(
-        address indexed from, 
-        address indexed to, 
-        uint256 indexed tokenId);
-
     // count all the NFT's owner has in his account
     function balanceOf(address _owner) public view returns(uint256){
          // requires that the address isn't zero
@@ -59,6 +54,34 @@ contract ERC721 {
         // This returns the owner address of whom the token belongs
         return _owner;
     }
+
+     // mapping from token id to approved addresses
+    mapping(uint => address) private _tokenApprovals;
+
+    // transferFunction
+    function _transferFrom(address _from, address _to, uint _tokenId) internal {
+        // d. require that the address receiving the token is not a zero address
+        require(_to != address(0), 'ERC721: TRANSFER TO THE ZERO ADDRESS');
+        // e. require the address transferring the token actually owns the token
+        require(ownerOf(_tokenId) == _from, 'Trying to transfer the token address does not own');
+        // b. update the balance of the address _from token
+        _ownedTokensCount[_from] = _ownedTokensCount[_from] - 1;
+        // c. update the balance of the address _to
+        _ownedTokensCount[_to] = _ownedTokensCount[_to] + 1;
+        // a. add the token id to the address receiving the token
+        _tokenOwner[_tokenId] = _to;
+        
+        emit Transfer(_from, _to, _tokenId);
+    }
+
+    function transferFrom(address _from, address _to, uint _tokenId) public {
+        _transferFrom(_from, _to, _tokenId);
+    }
+
+    event Transfer(
+        address indexed from, 
+        address indexed to, 
+        uint256 indexed tokenId);
 
     constructor(){
 
