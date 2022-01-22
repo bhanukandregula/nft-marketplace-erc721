@@ -75,13 +75,43 @@ contract ERC721 {
     }
 
     function transferFrom(address _from, address _to, uint _tokenId) public {
+        // there is additional function shas to be writtne to approve, but for now; its just owner
+        // we can get the additional notes from openzepplin library
+        // node_modules/openzepplin/token/ERC721/
+        require(isApprovedOrOwner(msg.sender, _tokenId));
         _transferFrom(_from, _to, _tokenId);
+    }
+
+    function approve(address _to, uint _tokenId) public {
+        // a. require the person approving is the owner
+        // b. approve an address to a token (tokenId)
+        // c. require that we can't approve sending tokens to owner to the owner
+        // d. update the map of the approval addresses
+
+        address owner = ownerOf(_tokenId);
+        require(_to != owner, 'Erroor: approvalk to current owner');
+        require(msg.sender == owner, 'Current caller is not the owner');
+        _tokenApprovals[_tokenId] = _to; 
+
+        emit Approval(owner, _to, _tokenId);
+    }
+
+    function isApprovedOrOwner(address spender, uint _tokenId) internal view returns(bool){
+        require(_exists(_tokenId), 'Token does not exists');
+        address owner = ownerOf(_tokenId);
+        return(spender == owner);
     }
 
     event Transfer(
         address indexed from, 
         address indexed to, 
         uint256 indexed tokenId);
+
+    event Approval(
+        address indexed owner,
+        address indexed approved,
+        uint indexed tokenId
+    );
 
     constructor(){
 
