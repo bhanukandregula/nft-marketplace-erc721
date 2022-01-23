@@ -37,20 +37,20 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IERC721Metadata {\n    function name() external view returns (string memory _name);\n    function symbol() external view returns (string memory _symbol);\n    // function tokenURI(uint256 _tokenId) external view returns (string memory);\n}",
-  "sourcePath": "/Users/bhanuprakashkandregula/Documents/programming/nft-marketplace-starter-kit/src/contracts/interfaces/IERC721Metadata.sol",
+  "sourcePath": "/Users/bhanuprakashkandregula/Documents/programming/nft-marketplace-truffle-ganache/src/contracts/interfaces/IERC721Metadata.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/interfaces/IERC721Metadata.sol",
     "exportedSymbols": {
       "IERC721Metadata": [
-        847
+        901
       ]
     },
-    "id": 848,
+    "id": 902,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 836,
+        "id": 890,
         "literals": [
           "solidity",
           "^",
@@ -58,7 +58,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:10"
+        "src": "32:23:11"
       },
       {
         "abstract": false,
@@ -67,42 +67,42 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 847,
+        "id": 901,
         "linearizedBaseContracts": [
-          847
+          901
         ],
         "name": "IERC721Metadata",
-        "nameLocation": "67:15:10",
+        "nameLocation": "67:15:11",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "06fdde03",
-            "id": 841,
+            "id": 895,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "name",
-            "nameLocation": "98:4:10",
+            "nameLocation": "98:4:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 837,
+              "id": 891,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "102:2:10"
+              "src": "102:2:11"
             },
             "returnParameters": {
-              "id": 840,
+              "id": 894,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 839,
+                  "id": 893,
                   "mutability": "mutable",
                   "name": "_name",
-                  "nameLocation": "142:5:10",
+                  "nameLocation": "142:5:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 841,
-                  "src": "128:19:10",
+                  "scope": 895,
+                  "src": "128:19:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -110,10 +110,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 838,
+                    "id": 892,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "128:6:10",
+                    "src": "128:6:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -122,42 +122,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "127:21:10"
+              "src": "127:21:11"
             },
-            "scope": 847,
-            "src": "89:60:10",
+            "scope": 901,
+            "src": "89:60:11",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "95d89b41",
-            "id": 846,
+            "id": 900,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "symbol",
-            "nameLocation": "163:6:10",
+            "nameLocation": "163:6:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 842,
+              "id": 896,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "169:2:10"
+              "src": "169:2:11"
             },
             "returnParameters": {
-              "id": 845,
+              "id": 899,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 844,
+                  "id": 898,
                   "mutability": "mutable",
                   "name": "_symbol",
-                  "nameLocation": "209:7:10",
+                  "nameLocation": "209:7:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 846,
-                  "src": "195:21:10",
+                  "scope": 900,
+                  "src": "195:21:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -165,10 +165,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 843,
+                    "id": 897,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "195:6:10",
+                    "src": "195:6:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -177,35 +177,35 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "194:23:10"
+              "src": "194:23:11"
             },
-            "scope": 847,
-            "src": "154:64:10",
+            "scope": 901,
+            "src": "154:64:11",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 848,
-        "src": "57:245:10",
+        "scope": 902,
+        "src": "57:245:11",
         "usedErrors": []
       }
     ],
-    "src": "32:270:10"
+    "src": "32:270:11"
   },
   "legacyAST": {
     "absolutePath": "project:/src/contracts/interfaces/IERC721Metadata.sol",
     "exportedSymbols": {
       "IERC721Metadata": [
-        847
+        901
       ]
     },
-    "id": 848,
+    "id": 902,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 836,
+        "id": 890,
         "literals": [
           "solidity",
           "^",
@@ -213,7 +213,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:10"
+        "src": "32:23:11"
       },
       {
         "abstract": false,
@@ -222,42 +222,42 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 847,
+        "id": 901,
         "linearizedBaseContracts": [
-          847
+          901
         ],
         "name": "IERC721Metadata",
-        "nameLocation": "67:15:10",
+        "nameLocation": "67:15:11",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "06fdde03",
-            "id": 841,
+            "id": 895,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "name",
-            "nameLocation": "98:4:10",
+            "nameLocation": "98:4:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 837,
+              "id": 891,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "102:2:10"
+              "src": "102:2:11"
             },
             "returnParameters": {
-              "id": 840,
+              "id": 894,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 839,
+                  "id": 893,
                   "mutability": "mutable",
                   "name": "_name",
-                  "nameLocation": "142:5:10",
+                  "nameLocation": "142:5:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 841,
-                  "src": "128:19:10",
+                  "scope": 895,
+                  "src": "128:19:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -265,10 +265,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 838,
+                    "id": 892,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "128:6:10",
+                    "src": "128:6:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -277,42 +277,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "127:21:10"
+              "src": "127:21:11"
             },
-            "scope": 847,
-            "src": "89:60:10",
+            "scope": 901,
+            "src": "89:60:11",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "95d89b41",
-            "id": 846,
+            "id": 900,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "symbol",
-            "nameLocation": "163:6:10",
+            "nameLocation": "163:6:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 842,
+              "id": 896,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "169:2:10"
+              "src": "169:2:11"
             },
             "returnParameters": {
-              "id": 845,
+              "id": 899,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 844,
+                  "id": 898,
                   "mutability": "mutable",
                   "name": "_symbol",
-                  "nameLocation": "209:7:10",
+                  "nameLocation": "209:7:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 846,
-                  "src": "195:21:10",
+                  "scope": 900,
+                  "src": "195:21:11",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -320,10 +320,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 843,
+                    "id": 897,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "195:6:10",
+                    "src": "195:6:11",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -332,21 +332,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "194:23:10"
+              "src": "194:23:11"
             },
-            "scope": 847,
-            "src": "154:64:10",
+            "scope": 901,
+            "src": "154:64:11",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 848,
-        "src": "57:245:10",
+        "scope": 902,
+        "src": "57:245:11",
         "usedErrors": []
       }
     ],
-    "src": "32:270:10"
+    "src": "32:270:11"
   },
   "compiler": {
     "name": "solc",
@@ -354,7 +354,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-01-22T23:43:21.562Z",
+  "updatedAt": "2022-01-23T00:55:43.657Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
